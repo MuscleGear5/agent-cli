@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QwenLM/qwen-code.git"
+    "url": "git+https://github.com/MuscleGear5/agent-cli.git"
   },
   "config": {
     "sandboxImageUri": "ghcr.io/qwenlm/qwen-code:0.5.1"
