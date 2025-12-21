@@ -4,11 +4,11 @@ import type { WebViewProvider } from '../webview/WebViewProvider.js';
 
 type Logger = (message: string) => void;
 
-export const runQwenCodeCommand = 'qwen-code.runQwenCode';
+export const runQwenCodeCommand = 'agent-cli.runQwenCode';
 export const showDiffCommand = 'qwenCode.showDiff';
-export const openChatCommand = 'qwen-code.openChat';
+export const openChatCommand = 'agent-cli.openChat';
 export const openNewChatTabCommand = 'qwenCode.openNewChatTab';
-export const loginCommand = 'qwen-code.login';
+export const loginCommand = 'agent-cli.login';
 
 export function registerNewCommands(
   context: vscode.ExtensionContext,
@@ -71,7 +71,7 @@ export function registerNewCommands(
         await providers[providers.length - 1].forceReLogin();
       } else {
         vscode.window.showInformationMessage(
-          'Please open Qwen Code chat first before logging in.',
+          'Please open Agent-Cli chat first before logging in.',
         );
       }
     }),

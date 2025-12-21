@@ -5,7 +5,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import type { FileSystemService } from '@qwen-code/qwen-code-core';
+import type { FileSystemService } from '@musclegear555/agent-cli-core';
 import { AcpFileSystemService } from './filesystem.js';
 
 const createFallback = (): FileSystemService => ({

@@ -14,7 +14,7 @@ import {
   QWEN_DIR,
   getErrorMessage,
   Storage,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import stripJsonComments from 'strip-json-comments';
 import { DefaultLight } from '../ui/themes/default-light.js';
 import { DefaultDark } from '../ui/themes/default.js';
@@ -144,9 +144,9 @@ export function getSystemSettingsPath(): string {
   if (platform() === 'darwin') {
     return '/Library/Application Support/QwenCode/settings.json';
   } else if (platform() === 'win32') {
-    return 'C:\\ProgramData\\qwen-code\\settings.json';
+    return 'C:\\ProgramData\\agent-cli\\settings.json';
   } else {
-    return '/etc/qwen-code/settings.json';
+    return '/etc/agent-cli/settings.json';
   }
 }
 

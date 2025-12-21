@@ -6,7 +6,7 @@
 
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import { execCommand } from '@qwen-code/qwen-code-core';
+import { execCommand } from '@musclegear555/agent-cli-core';
 
 /**
  * Checks if the system clipboard contains an image (macOS only for now)

@@ -13,9 +13,9 @@ export default {
   'integration-vscode': 'Visual Studio Code',
   'integration-zed': 'Zed IDE',
   'integration-github-action': 'Github Actions',
-  'Code with Qwen Code': {
+  'Code with Agent-Cli': {
     type: 'separator',
-    title: 'Code with Qwen Code', // Title is optional
+    title: 'Code with Agent-Cli', // Title is optional
   },
   features: 'Features',
   configuration: 'Configuration',

@@ -89,7 +89,7 @@ export class AgentSideConnection implements Client {
   }
 
   /**
-   * Streams authentication updates (e.g. Qwen OAuth authUri) to the client.
+   * Streams authentication updates (e.g. Agent-Cli Auth authUri) to the client.
    */
   async authenticateUpdate(params: schema.AuthenticateUpdate): Promise<void> {
     return await this.#connection.sendNotification(

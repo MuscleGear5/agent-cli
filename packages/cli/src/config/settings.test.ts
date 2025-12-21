@@ -69,7 +69,7 @@ import {
   SETTINGS_VERSION,
   SETTINGS_VERSION_KEY,
 } from './settings.js';
-import { FatalConfigError, QWEN_DIR } from '@qwen-code/qwen-code-core';
+import { FatalConfigError, QWEN_DIR } from '@musclegear555/agent-cli-core';
 
 const MOCK_WORKSPACE_DIR = '/mock/workspace';
 // Use the (mocked) SETTINGS_DIRECTORY_NAME for consistency
@@ -445,7 +445,7 @@ describe('Settings Loading and Merging', () => {
       );
       const legacySettingsContent = {
         theme: 'dark',
-        model: 'qwen-coder',
+        model: 'agent-clir',
       };
       (fs.readFileSync as Mock).mockImplementation(
         (p: fs.PathOrFileDescriptor) => {
@@ -474,7 +474,7 @@ describe('Settings Loading and Merging', () => {
           theme: 'dark',
         },
         model: {
-          name: 'qwen-coder',
+          name: 'agent-clir',
         },
       };
       (fs.readFileSync as Mock).mockImplementation(
@@ -503,7 +503,7 @@ describe('Settings Loading and Merging', () => {
           theme: 'dark',
         },
         model: {
-          name: 'qwen-coder',
+          name: 'agent-clir',
         },
       };
       (fs.readFileSync as Mock).mockImplementation(
@@ -528,7 +528,7 @@ describe('Settings Loading and Merging', () => {
       expect(writtenPath).toBe(USER_SETTINGS_PATH);
       expect(writtenContent[SETTINGS_VERSION_KEY]).toBe(SETTINGS_VERSION);
       expect(writtenContent.ui?.theme).toBe('dark');
-      expect(writtenContent.model?.name).toBe('qwen-coder');
+      expect(writtenContent.model?.name).toBe('agent-clir');
     });
 
     it('should correctly handle partially migrated settings without version field', () => {
@@ -538,7 +538,7 @@ describe('Settings Loading and Merging', () => {
       // Edge case: model already in V2 format (object), but autoAccept in V1 format
       const partiallyMigratedContent = {
         model: {
-          name: 'qwen-coder',
+          name: 'agent-clir',
         },
         autoAccept: false, // V1 key
       };
@@ -558,7 +558,7 @@ describe('Settings Loading and Merging', () => {
       const writtenContent = JSON.parse(writeCall[1] as string);
 
       // Model should remain as an object, not double-nested
-      expect(writtenContent.model).toEqual({ name: 'qwen-coder' });
+      expect(writtenContent.model).toEqual({ name: 'agent-clir' });
       // autoAccept should be migrated to tools.autoAccept
       expect(writtenContent.tools?.autoAccept).toBe(false);
       // Version field should be added
@@ -2431,7 +2431,7 @@ describe('Settings Loading and Merging', () => {
           theme: 'dark',
         },
         model: {
-          name: 'qwen-coder',
+          name: 'agent-clir',
         },
       };
       const v1Settings = migrateSettingsToV1(v2Settings);
@@ -2441,7 +2441,7 @@ describe('Settings Loading and Merging', () => {
       // Other fields should be properly migrated
       expect(v1Settings).toEqual({
         theme: 'dark',
-        model: 'qwen-coder',
+        model: 'agent-clir',
       });
     });
 
@@ -2629,7 +2629,7 @@ describe('Settings Loading and Merging', () => {
         // but other fields in V1 format
         const partiallyMigrated = {
           model: {
-            name: 'qwen-coder',
+            name: 'agent-clir',
           },
           autoAccept: false, // V1 key
         };
@@ -2641,7 +2641,7 @@ describe('Settings Loading and Merging', () => {
         const partiallyMigratedWithVersion = {
           [SETTINGS_VERSION_KEY]: SETTINGS_VERSION,
           model: {
-            name: 'qwen-coder',
+            name: 'agent-clir',
           },
           autoAccept: false, // This would look like V1 but version says it's V2
         };

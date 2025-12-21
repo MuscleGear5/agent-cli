@@ -6,17 +6,17 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
-import type { DeviceAuthorizationData } from '@qwen-code/qwen-code-core';
+import type { DeviceAuthorizationData } from '@musclegear555/agent-cli-core';
 import { useQwenAuth } from './useQwenAuth.js';
 import {
   AuthType,
   qwenOAuth2Events,
   QwenOAuth2Event,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 
 // Mock the qwenOAuth2Events
-vi.mock('@qwen-code/qwen-code-core', async () => {
-  const actual = await vi.importActual('@qwen-code/qwen-code-core');
+vi.mock('@musclegear555/agent-cli-core', async () => {
+  const actual = await vi.importActual('@musclegear555/agent-cli-core');
   const mockEmitter = {
     on: vi.fn().mockReturnThis(),
     off: vi.fn().mockReturnThis(),
@@ -397,7 +397,7 @@ describe('useQwenAuth', () => {
   });
 
   it('should handle different auth types correctly', () => {
-    // Test with Qwen OAuth - should set up event listeners when authenticating
+    // Test with Agent-Cli Auth - should set up event listeners when authenticating
     const { result: qwenResult } = renderHook(() =>
       useQwenAuth(AuthType.QWEN_OAUTH, true),
     );

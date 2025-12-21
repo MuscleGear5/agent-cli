@@ -8,7 +8,7 @@
 
 import './src/gemini.js';
 import { main } from './src/gemini.js';
-import { FatalError } from '@qwen-code/qwen-code-core';
+import { FatalError } from '@musclegear555/agent-cli-core';
 
 // --- Global Entry Point ---
 main().catch((error) => {

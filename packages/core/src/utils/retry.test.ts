@@ -452,8 +452,8 @@ describe('retryWithBackoff', () => {
     });
   });
 
-  describe('Qwen OAuth 429 error handling', () => {
-    it('should retry for Qwen OAuth 429 errors that are throttling-related', async () => {
+  describe('Agent-Cli Auth 429 error handling', () => {
+    it('should retry for Agent-Cli Auth 429 errors that are throttling-related', async () => {
       const errorWith429: HttpError = new Error('Rate limit exceeded');
       errorWith429.status = 429;
 
@@ -478,7 +478,7 @@ describe('retryWithBackoff', () => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
 
-    it('should throw immediately for Qwen OAuth with insufficient_quota message', async () => {
+    it('should throw immediately for Agent-Cli Auth with insufficient_quota message', async () => {
       const errorWithInsufficientQuota = new Error('insufficient_quota');
 
       const fn = vi.fn().mockRejectedValue(errorWithInsufficientQuota);
@@ -496,7 +496,7 @@ describe('retryWithBackoff', () => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    it('should throw immediately for Qwen OAuth with free allocated quota exceeded message', async () => {
+    it('should throw immediately for Agent-Cli Auth with free allocated quota exceeded message', async () => {
       const errorWithQuotaExceeded = new Error(
         'Free allocated quota exceeded.',
       );
@@ -516,7 +516,7 @@ describe('retryWithBackoff', () => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    it('should retry for Qwen OAuth with throttling message', async () => {
+    it('should retry for Agent-Cli Auth with throttling message', async () => {
       const throttlingError: HttpError = new Error(
         'requests throttling triggered',
       );
@@ -544,7 +544,7 @@ describe('retryWithBackoff', () => {
       expect(fn).toHaveBeenCalledTimes(3);
     });
 
-    it('should retry for Qwen OAuth with throttling error', async () => {
+    it('should retry for Agent-Cli Auth with throttling error', async () => {
       const throttlingError: HttpError = new Error('throttling');
       throttlingError.status = 429;
 
@@ -569,7 +569,7 @@ describe('retryWithBackoff', () => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
 
-    it('should throw immediately for Qwen OAuth with quota message', async () => {
+    it('should throw immediately for Agent-Cli Auth with quota message', async () => {
       const errorWithQuota = new Error('quota exceeded');
 
       const fn = vi.fn().mockRejectedValue(errorWithQuota);
@@ -587,7 +587,7 @@ describe('retryWithBackoff', () => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    it('should retry normal errors for Qwen OAuth (not quota-related)', async () => {
+    it('should retry normal errors for Agent-Cli Auth (not quota-related)', async () => {
       const normalError: HttpError = new Error('Network error');
       normalError.status = 500;
 

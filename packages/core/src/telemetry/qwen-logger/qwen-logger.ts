@@ -237,7 +237,7 @@ export class QwenLogger {
       },
       view: {
         id: this.sessionId || this.config?.getSessionId(),
-        name: 'qwen-code-cli',
+        name: 'agent-cli-cli',
       },
       os: osMetadata,
 
@@ -253,7 +253,7 @@ export class QwenLogger {
           ? { channel: this.config.getChannel() }
           : {}),
       },
-      _v: `qwen-code@${version}`,
+      _v: `agent-cli@${version}`,
     } as RumPayload;
   }
 

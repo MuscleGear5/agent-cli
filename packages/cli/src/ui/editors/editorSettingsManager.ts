@@ -8,7 +8,7 @@ import {
   allowEditorTypeInSandbox,
   checkHasEditorType,
   type EditorType,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 
 export interface EditorDisplay {
   name: string;

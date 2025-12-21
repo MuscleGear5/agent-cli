@@ -12,7 +12,7 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { query, isSDKAssistantMessage, type SDKMessage } from '@qwen-code/sdk';
+import { query, isSDKAssistantMessage, type SDKMessage } from '@agent-cli/sdk';
 import {
   SDKTestHelper,
   extractText,

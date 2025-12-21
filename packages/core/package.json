@@ -1,10 +1,10 @@
 {
-  "name": "@qwen-code/qwen-code-core",
+  "name": "@musclegear555/agent-cli-core",
   "version": "0.5.1",
-  "description": "Qwen Code Core",
+  "description": "Agent-Cli Core",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QwenLM/qwen-code.git"
+    "url": "git+https://github.com/MuscleGear5/agent-cli.git"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -77,7 +77,7 @@
     "node-pty": "^1.0.0"
   },
   "devDependencies": {
-    "@qwen-code/qwen-code-test-utils": "file:../test-utils",
+    "@musclegear555/agent-cli-test-utils": "file:../test-utils",
     "@types/diff": "^7.0.2",
     "@types/dotenv": "^6.1.1",
     "@types/fast-levenshtein": "^0.0.4",

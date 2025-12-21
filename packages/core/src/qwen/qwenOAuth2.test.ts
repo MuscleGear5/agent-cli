@@ -158,8 +158,8 @@ describe('Type Guards', () => {
   describe('isDeviceAuthorizationSuccess', () => {
     it('should return true for successful authorization response', () => {
       const expectedBaseUrl = process.env['DEBUG']
-        ? 'https://pre4-chat.qwen.ai'
-        : 'https://chat.qwen.ai';
+        ? 'https://pre4-chat.agent-cli'
+        : 'https://chat.agent-cli';
 
       const successResponse: DeviceAuthorizationResponse = {
         device_code: 'test-device-code',
@@ -278,8 +278,8 @@ describe('Type Guards', () => {
       const successResponse: DeviceAuthorizationResponse = {
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       };
 
@@ -313,8 +313,9 @@ describe('QwenOAuth2Client', () => {
         json: async () => ({
           device_code: 'test-device-code',
           user_code: 'TEST123',
-          verification_uri: 'https://chat.qwen.ai/device',
-          verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+          verification_uri: 'https://chat.agent-cli/device',
+          verification_uri_complete:
+            'https://chat.agent-cli/device?code=TEST123',
           expires_in: 1800,
         }),
       };
@@ -330,8 +331,8 @@ describe('QwenOAuth2Client', () => {
       expect(result).toEqual({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       });
     });
@@ -1026,8 +1027,8 @@ describe('getQwenOAuthClient - Enhanced Error Scenarios', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 0.1, // Very short timeout for testing
       }),
     };
@@ -1075,8 +1076,8 @@ describe('getQwenOAuthClient - Enhanced Error Scenarios', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };
@@ -1209,8 +1210,8 @@ describe('authWithQwenDeviceFlow - Comprehensive Testing', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };
@@ -1258,8 +1259,8 @@ describe('authWithQwenDeviceFlow - Comprehensive Testing', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };
@@ -1311,8 +1312,8 @@ describe('authWithQwenDeviceFlow - Comprehensive Testing', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };
@@ -1379,8 +1380,8 @@ describe('Browser Launch and Error Handling', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };
@@ -1432,8 +1433,8 @@ describe('Browser Launch and Error Handling', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };
@@ -1703,8 +1704,9 @@ describe('Enhanced Error Handling and Edge Cases', () => {
         json: async () => ({
           device_code: 'test-device-code',
           user_code: 'TEST123',
-          verification_uri: 'https://chat.qwen.ai/device',
-          verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+          verification_uri: 'https://chat.agent-cli/device',
+          verification_uri_complete:
+            'https://chat.agent-cli/device?code=TEST123',
           expires_in: 1800,
         }),
       };
@@ -1733,8 +1735,9 @@ describe('Enhanced Error Handling and Edge Cases', () => {
         json: async () => ({
           device_code: 'test-device-code',
           user_code: 'TEST123',
-          verification_uri: 'https://chat.qwen.ai/device',
-          verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+          verification_uri: 'https://chat.agent-cli/device',
+          verification_uri_complete:
+            'https://chat.agent-cli/device?code=TEST123',
           expires_in: 1800,
         }),
       };
@@ -1764,8 +1767,9 @@ describe('Enhanced Error Handling and Edge Cases', () => {
         json: async () => ({
           device_code: 'test-device-code',
           user_code: 'TEST123',
-          verification_uri: 'https://chat.qwen.ai/device',
-          verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+          verification_uri: 'https://chat.agent-cli/device',
+          verification_uri_complete:
+            'https://chat.agent-cli/device?code=TEST123',
           expires_in: 1800,
         }),
       };
@@ -2023,8 +2027,9 @@ describe('SharedTokenManager Integration in QwenOAuth2Client', () => {
         json: async () => ({
           device_code: 'test-device-code',
           user_code: 'TEST123',
-          verification_uri: 'https://chat.qwen.ai/device',
-          verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+          verification_uri: 'https://chat.agent-cli/device',
+          verification_uri_complete:
+            'https://chat.agent-cli/device?code=TEST123',
           expires_in: 1800,
         }),
       };
@@ -2068,8 +2073,8 @@ describe('Constants and Configuration', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };
@@ -2083,7 +2088,7 @@ describe('Constants and Configuration', () => {
     });
 
     const [url] = vi.mocked(global.fetch).mock.calls[0];
-    expect(url).toBe('https://chat.qwen.ai/api/v1/oauth2/device/code');
+    expect(url).toBe('https://chat.agent-cli/api/v1/oauth2/device/code');
   });
 
   it('should use correct client ID in requests', async () => {
@@ -2094,8 +2099,8 @@ describe('Constants and Configuration', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };
@@ -2123,8 +2128,8 @@ describe('Constants and Configuration', () => {
       json: async () => ({
         device_code: 'test-device-code',
         user_code: 'TEST123',
-        verification_uri: 'https://chat.qwen.ai/device',
-        verification_uri_complete: 'https://chat.qwen.ai/device?code=TEST123',
+        verification_uri: 'https://chat.agent-cli/device',
+        verification_uri_complete: 'https://chat.agent-cli/device?code=TEST123',
         expires_in: 1800,
       }),
     };

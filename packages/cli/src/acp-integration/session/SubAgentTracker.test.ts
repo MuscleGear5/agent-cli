@@ -16,12 +16,12 @@ import type {
   SubAgentApprovalRequestEvent,
   ToolEditConfirmationDetails,
   ToolInfoConfirmationDetails,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import {
   SubAgentEventType,
   ToolConfirmationOutcome,
   TodoWriteTool,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import type * as acp from '../acp.js';
 import { EventEmitter } from 'node:events';
 

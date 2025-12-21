@@ -5,8 +5,8 @@
  */
 
 import { useState, useEffect } from 'react';
-import type { Storage } from '@qwen-code/qwen-code-core';
-import { Logger } from '@qwen-code/qwen-code-core';
+import type { Storage } from '@musclegear555/agent-cli-core';
+import { Logger } from '@musclegear555/agent-cli-core';
 
 /**
  * Hook to manage the logger instance.

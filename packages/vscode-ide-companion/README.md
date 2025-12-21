@@ -1,23 +1,23 @@
-# Qwen Code Companion
+# Agent-Cli Companion
 
-The Qwen Code Companion extension seamlessly integrates [Qwen Code](https://github.com/QwenLM/qwen-code). This extension is compatible with both VS Code and VS Code forks.
+The Agent-Cli Companion extension seamlessly integrates [Agent-Cli](https://github.com/MuscleGear5/agent-cli). This extension is compatible with both VS Code and VS Code forks.
 
 # Features
 
-- Open Editor File Context: Qwen Code gains awareness of the files you have open in your editor, providing it with a richer understanding of your project's structure and content.
+- Open Editor File Context: Agent-Cli gains awareness of the files you have open in your editor, providing it with a richer understanding of your project's structure and content.
 
-- Selection Context: Qwen Code can easily access your cursor's position and selected text within the editor, giving it valuable context directly from your current work.
+- Selection Context: Agent-Cli can easily access your cursor's position and selected text within the editor, giving it valuable context directly from your current work.
 
-- Native Diffing: Seamlessly view, modify, and accept code changes suggested by Qwen Code directly within the editor.
+- Native Diffing: Seamlessly view, modify, and accept code changes suggested by Agent-Cli directly within the editor.
 
-- Launch Qwen Code: Quickly start a new Qwen Code session from the Command Palette (Cmd+Shift+P or Ctrl+Shift+P) by running the "Qwen Code: Run" command.
+- Launch Agent-Cli: Quickly start a new Agent-Cli session from the Command Palette (Cmd+Shift+P or Ctrl+Shift+P) by running the "Agent-Cli: Run" command.
 
 # Requirements
 
 To use this extension, you'll need:
 
 - VS Code version 1.101.0 or newer
-- Qwen Code (installed separately) running within the VS Code integrated terminal
+- Agent-Cli (installed separately) running within the VS Code integrated terminal
 
 # Development and Debugging
 
@@ -26,8 +26,8 @@ To debug and develop this extension locally:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/QwenLM/qwen-code.git
-   cd qwen-code
+   git clone https://github.com/MuscleGear5/agent-cli.git
+   cd agent-cli
    ```
 
 2. **Install dependencies**
@@ -78,4 +78,4 @@ pnpm vsce package
 
 # Terms of Service and Privacy Notice
 
-By installing this extension, you agree to the [Terms of Service](https://github.com/QwenLM/qwen-code/blob/main/docs/tos-privacy.md).
+By installing this extension, you agree to the [Terms of Service](https://github.com/MuscleGear5/agent-cli/blob/main/docs/tos-privacy.md).

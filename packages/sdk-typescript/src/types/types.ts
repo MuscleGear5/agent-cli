@@ -80,7 +80,7 @@ export type McpAuthProviderType =
  * - Streamable HTTP: httpUrl, headers
  * - WebSocket: tcp
  *
- * This interface aligns with MCPServerConfig in @qwen-code/qwen-code-core.
+ * This interface aligns with MCPServerConfig in @musclegear555/agent-cli-core.
  */
 export interface CLIMcpServerConfig {
   // For stdio transport
@@ -190,7 +190,7 @@ export interface QueryOptions {
    * - 'deno:/path/to/cli.ts' -> Force Deno runtime
    *
    * If not provided, the SDK will auto-detect the native binary in this order:
-   * 1. QWEN_CODE_CLI_PATH environment variable
+   * 1. AGENT_CLI_PATH environment variable
    * 2. ~/.volta/bin/qwen
    * 3. ~/.npm-global/bin/qwen
    * 4. /usr/local/bin/qwen
@@ -384,10 +384,10 @@ export interface QueryOptions {
   /**
    * Authentication type for the AI service.
    * - 'openai': Use OpenAI-compatible authentication
-   * - 'qwen-oauth': Use Qwen OAuth authentication
+   * - 'qwen-oauth': Use Agent-Cli Auth authentication
    *
    * Though we support 'qwen-oauth', it's not recommended to use it in the SDK.
-   * Because the credentials are stored in `~/.qwen` and may need to refresh periodically.
+   * Because the credentials are stored in `~/.agent-cli` and may need to refresh periodically.
    */
   authType?: 'openai' | 'qwen-oauth';
 

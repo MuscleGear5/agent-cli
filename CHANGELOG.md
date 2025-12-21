@@ -12,8 +12,8 @@
 
 - Added YOLO mode support for automatic vision model switching with CLI arguments and environment variables.
 - Fixed ripgrep lazy loading to resolve VS Code IDE companion startup issues.
-- Fixed authentication hang when selecting Qwen OAuth.
-- Added OpenAI and Qwen OAuth authentication support to Zed ACP integration.
+- Fixed authentication hang when selecting Agent-Cli Auth.
+- Added OpenAI and Agent-Cli Auth authentication support to Zed ACP integration.
 - Fixed output token limit for Qwen models.
 - Fixed Markdown list display issues on Windows.
 - Enhanced vision model instructions and documentation.
@@ -87,7 +87,7 @@
 ## 0.0.8
 
 - Synced upstream `gemini-cli` to v0.1.19.
-- Updated documentation branding from **Gemini CLI** to **Qwen Code**.
+- Updated documentation branding from **Gemini CLI** to **Agent-Cli**.
 - Added multilingual docs links in `README.md`.
 - Added deterministic cache control for the DashScope provider.
 - Added option to choose a project-level or global save location.
@@ -109,13 +109,13 @@
 ## 0.0.6
 
 - Added usage statistics logging for Qwen integration.
-- Made `/init` respect the configured context filename and aligned docs with `QWEN.md`.
+- Made `/init` respect the configured context filename and aligned docs with `AGENTS.md`.
 - Fixed `EPERM` error when running `qwen --sandbox` on macOS.
 - Fixed terminal flicker while waiting for login.
 - Fixed `glm-4.5` model request error.
 
 ## 0.0.5
 
-- Added Qwen OAuth login and up to 2,000 free requests per day.
+- Added Agent-Cli Auth login and up to 2,000 free requests per day.
 - Synced upstream `gemini-cli` to v0.1.17.
 - Added the `systemPromptMappings` configuration option.

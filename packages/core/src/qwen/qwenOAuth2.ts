@@ -20,7 +20,7 @@ import {
 } from './sharedTokenManager.js';
 
 // OAuth Endpoints
-const QWEN_OAUTH_BASE_URL = 'https://chat.qwen.ai';
+const QWEN_OAUTH_BASE_URL = 'https://chat.agent-cli';
 
 const QWEN_OAUTH_DEVICE_CODE_ENDPOINT = `${QWEN_OAUTH_BASE_URL}/api/v1/oauth2/device/code`;
 const QWEN_OAUTH_TOKEN_ENDPOINT = `${QWEN_OAUTH_BASE_URL}/api/v1/oauth2/token`;
@@ -107,7 +107,7 @@ export class CredentialsClearRequiredError extends Error {
 }
 
 /**
- * Qwen OAuth2 credentials interface
+ * Agent-Cli Auth2 credentials interface
  */
 export interface QwenCredentials {
   access_token?: string;
@@ -228,7 +228,7 @@ export interface TokenRefreshData {
 export type TokenRefreshResponse = TokenRefreshData | ErrorData;
 
 /**
- * Qwen OAuth2 client interface
+ * Agent-Cli Auth2 client interface
  */
 export interface IQwenOAuth2Client {
   setCredentials(credentials: QwenCredentials): void;
@@ -247,7 +247,7 @@ export interface IQwenOAuth2Client {
 }
 
 /**
- * Qwen OAuth2 client implementation
+ * Agent-Cli Auth2 client implementation
  */
 export class QwenOAuth2Client implements IQwenOAuth2Client {
   private credentials: QwenCredentials = {};
@@ -540,14 +540,14 @@ export async function getQwenOAuthClient(
         (() => {
           switch (result.reason) {
             case 'timeout':
-              return 'Qwen OAuth authentication timed out';
+              return 'Agent-Cli Auth authentication timed out';
             case 'cancelled':
-              return 'Qwen OAuth authentication was cancelled by user';
+              return 'Agent-Cli Auth authentication was cancelled by user';
             case 'rate_limit':
-              return 'Too many request for Qwen OAuth authentication, please try again later.';
+              return 'Too many request for Agent-Cli Auth authentication, please try again later.';
             case 'error':
             default:
-              return 'Qwen OAuth authentication failed';
+              return 'Agent-Cli Auth authentication failed';
           }
         })();
 
@@ -593,7 +593,7 @@ async function authWithQwenDeviceFlow(
     qwenOAuth2Events.emit(QwenOAuth2Event.AuthUri, deviceAuth);
 
     const showFallbackMessage = () => {
-      console.log('\n=== Qwen OAuth Device Authorization ===');
+      console.log('\n=== Agent-Cli Auth Device Authorization ===');
       console.log(
         'Please visit the following URL in your browser to authorize:',
       );

@@ -1,13 +1,13 @@
 # Sandbox
 
-This document explains how to run Qwen Code inside a sandbox to reduce risk when tools execute shell commands or modify files.
+This document explains how to run Agent-Cli inside a sandbox to reduce risk when tools execute shell commands or modify files.
 
 ## Prerequisites
 
-Before using sandboxing, you need to install and set up Qwen Code:
+Before using sandboxing, you need to install and set up Agent-Cli:
 
 ```bash
-npm install -g @qwen-code/qwen-code
+npm install -g @musclegear555/agent-cli
 ```
 
 To verify the installation
@@ -47,7 +47,7 @@ Lightweight, built-in sandboxing using `sandbox-exec`.
 
 Cross-platform sandboxing with complete process isolation.
 
-By default, Qwen Code uses a published sandbox image (configured in the CLI package) and will pull it as needed.
+By default, Agent-Cli uses a published sandbox image (configured in the CLI package) and will pull it as needed.
 
 **Best for**: Strong isolation on any OS, consistent tooling inside a known image.
 
@@ -102,7 +102,7 @@ qwen -p "run the test suite"
 - **CLI flag**: `--sandbox-image <image>`
 - **Environment variable**: `GEMINI_SANDBOX_IMAGE=<image>`
 
-If you don’t set either, Qwen Code uses the default image configured in the CLI package (for example `ghcr.io/qwenlm/qwen-code:<version>`).
+If you don’t set either, Agent-Cli uses the default image configured in the CLI package (for example `ghcr.io/qwenlm/agent-cli:<version>`).
 
 ### macOS Seatbelt profiles
 
@@ -123,7 +123,7 @@ Built-in profiles (set via `SEATBELT_PROFILE` env var):
 
 To use a custom Seatbelt profile:
 
-1. Create a file named `.qwen/sandbox-macos-<profile_name>.sb` in your project.
+1. Create a file named `.agent-cli/sandbox-macos-<profile_name>.sb` in your project.
 2. Set `SEATBELT_PROFILE=<profile_name>`.
 
 ### Custom Sandbox Flags
@@ -168,7 +168,7 @@ export SANDBOX_SET_UID_GID=false  # Disable UID/GID mapping
 
 If you need extra tools inside the container (e.g., `git`, `python`, `rg`), create a custom Dockerfile:
 
-- Path: `.qwen/sandbox.Dockerfile`
+- Path: `.agent-cli/sandbox.Dockerfile`
 - Then run with: `BUILD_SANDBOX=1 qwen -s ...`
 
 This builds a project-specific image based on the default sandbox image.
@@ -185,7 +185,7 @@ This builds a project-specific image based on the default sandbox image.
 
 **Missing commands**
 
-- Container sandbox: add them via `.qwen/sandbox.Dockerfile` or `.qwen/sandbox.bashrc`.
+- Container sandbox: add them via `.agent-cli/sandbox.Dockerfile` or `.agent-cli/sandbox.bashrc`.
 - Seatbelt: your host binaries are used, but the sandbox may restrict access to some paths.
 
 **Network issues**
@@ -199,7 +199,7 @@ This builds a project-specific image based on the default sandbox image.
 DEBUG=1 qwen -s -p "debug command"
 ```
 
-**Note:** If you have `DEBUG=true` in a project's `.env` file, it won't affect the CLI due to automatic exclusion. Use `.qwen/.env` files for Qwen Code-specific debug settings.
+**Note:** If you have `DEBUG=true` in a project's `.env` file, it won't affect the CLI due to automatic exclusion. Use `.agent-cli/.env` files for Agent-Cli-specific debug settings.
 
 ### Inspect sandbox
 

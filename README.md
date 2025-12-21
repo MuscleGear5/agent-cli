@@ -1,13 +1,13 @@
-# Qwen Code
+# Agent-Cli
 
 <div align="center">
 
-![Qwen Code Screenshot](./docs/assets/qwen-screenshot.png)
+![Agent-Cli Screenshot](./docs/assets/qwen-screenshot.png)
 
-[![npm version](https://img.shields.io/npm/v/@qwen-code/qwen-code.svg)](https://www.npmjs.com/package/@qwen-code/qwen-code)
-[![License](https://img.shields.io/github/license/QwenLM/qwen-code.svg)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/@musclegear555/agent-cli.svg)](https://www.npmjs.com/package/@musclegear555/agent-cli)
+[![License](https://img.shields.io/github/license/MuscleGear5/agent-cli.svg)](./LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org/)
-[![Downloads](https://img.shields.io/npm/dm/@qwen-code/qwen-code.svg)](https://www.npmjs.com/package/@qwen-code/qwen-code)
+[![Downloads](https://img.shields.io/npm/dm/@musclegear555/agent-cli.svg)](https://www.npmjs.com/package/@musclegear555/agent-cli)
 
 **AI-powered command-line workflow tool for developers**
 
@@ -17,27 +17,27 @@
 
 <div align="center">
   
-  <a href="https://qwenlm.github.io/qwen-code-docs/de/">Deutsch</a> | 
-  <a href="https://qwenlm.github.io/qwen-code-docs/fr">français</a> | 
-  <a href="https://qwenlm.github.io/qwen-code-docs/ja/">日本語</a> | 
-  <a href="https://qwenlm.github.io/qwen-code-docs/ru">Русский</a> | 
-  <a href="https://qwenlm.github.io/qwen-code-docs/zh/">中文</a>
+  <a href="https://qwenlm.github.io/agent-cli-docs/de/">Deutsch</a> | 
+  <a href="https://qwenlm.github.io/agent-cli-docs/fr">français</a> | 
+  <a href="https://qwenlm.github.io/agent-cli-docs/ja/">日本語</a> | 
+  <a href="https://qwenlm.github.io/agent-cli-docs/ru">Русский</a> | 
+  <a href="https://qwenlm.github.io/agent-cli-docs/zh/">中文</a>
   
 </div>
 
-Qwen Code is a powerful command-line AI workflow tool adapted from [**Gemini CLI**](https://github.com/google-gemini/gemini-cli), specifically optimized for [Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder) models. It enhances your development workflow with advanced code understanding, automated tasks, and intelligent assistance.
+Agent-Cli is a powerful command-line AI workflow tool adapted from [**Gemini CLI**](https://github.com/google-gemini/gemini-cli), specifically optimized for [Qwen3-Coder](https://github.com/MuscleGear5/Qwen3-Coder) models. It enhances your development workflow with advanced code understanding, automated tasks, and intelligent assistance.
 
 ## 💡 Free Options Available
 
-Get started with Qwen Code at no cost using any of these free options:
+Get started with Agent-Cli at no cost using any of these free options:
 
-### 🔥 Qwen OAuth (Recommended)
+### 🔥 Agent-Cli Auth (Recommended)
 
 - **2,000 requests per day** with no token limits
 - **60 requests per minute** rate limit
-- Simply run `qwen` and authenticate with your qwen.ai account
+- Simply run `qwen` and authenticate with your agent-cli account
 - Automatic credential management and refresh
-- Use `/auth` command to switch to Qwen OAuth if you have initialized with OpenAI compatible mode
+- Use `/auth` command to switch to Agent-Cli Auth if you have initialized with OpenAI compatible mode
 
 ### 🌏 Regional Free Tiers
 
@@ -47,13 +47,13 @@ Get started with Qwen Code at no cost using any of these free options:
 For detailed setup instructions, see [Authorization](#authorization).
 
 > [!WARNING]
-> **Token Usage Notice**: Qwen Code may issue multiple API calls per cycle, resulting in higher token usage (similar to Claude Code). We're actively optimizing API efficiency.
+> **Token Usage Notice**: Agent-Cli may issue multiple API calls per cycle, resulting in higher token usage (similar to Claude Code). We're actively optimizing API efficiency.
 
 ## Key Features
 
 - **Code Understanding & Editing** - Query and edit large codebases beyond traditional context window limits
 - **Workflow Automation** - Automate operational tasks like handling pull requests and complex rebases
-- **Enhanced Parser** - Adapted parser specifically optimized for Qwen-Coder models
+- **Enhanced Parser** - Adapted parser specifically optimized for Agent-Clir models
 - **Vision Model Support** - Automatically detect images in your input and seamlessly switch to vision-capable models for multimodal analysis
 
 ## Installation
@@ -69,15 +69,15 @@ curl -qL https://www.npmjs.com/install.sh | sh
 ### Install from npm
 
 ```bash
-npm install -g @qwen-code/qwen-code@latest
+npm install -g @musclegear555/agent-cli@latest
 qwen --version
 ```
 
 ### Install from source
 
 ```bash
-git clone https://github.com/QwenLM/qwen-code.git
-cd qwen-code
+git clone https://github.com/MuscleGear5/agent-cli.git
+cd agent-cli
 npm install
 npm install -g .
 ```
@@ -85,19 +85,19 @@ npm install -g .
 ### Install globally with Homebrew (macOS/Linux)
 
 ```bash
-brew install qwen-code
+brew install agent-cli
 ```
 
 ## VS Code Extension
 
-In addition to the CLI tool, Qwen Code also provides a **VS Code extension** that brings AI-powered coding assistance directly into your editor with features like file system operations, native diffing, interactive chat, and more.
+In addition to the CLI tool, Agent-Cli also provides a **VS Code extension** that brings AI-powered coding assistance directly into your editor with features like file system operations, native diffing, interactive chat, and more.
 
 > 📦 The extension is currently in development. For installation, features, and development guide, see the [VS Code Extension README](./packages/vscode-ide-companion/README.md).
 
 ## Quick Start
 
 ```bash
-# Start Qwen Code
+# Start Agent-Cli
 qwen
 
 # Example commands
@@ -112,7 +112,7 @@ Control your token usage with configurable session limits to optimize costs and 
 
 #### Configure Session Token Limit
 
-Create or edit `.qwen/settings.json` in your home directory:
+Create or edit `.agent-cli/settings.json` in your home directory:
 
 ```json
 {
@@ -130,11 +130,11 @@ Create or edit `.qwen/settings.json` in your home directory:
 
 ### Vision Model Configuration
 
-Qwen Code includes intelligent vision model auto-switching that detects images in your input and can automatically switch to vision-capable models for multimodal analysis. **This feature is enabled by default** - when you include images in your queries, you'll see a dialog asking how you'd like to handle the vision model switch.
+Agent-Cli includes intelligent vision model auto-switching that detects images in your input and can automatically switch to vision-capable models for multimodal analysis. **This feature is enabled by default** - when you include images in your queries, you'll see a dialog asking how you'd like to handle the vision model switch.
 
 #### Skip the Switch Dialog (Optional)
 
-If you don't want to see the interactive dialog each time, configure the default behavior in your `.qwen/settings.json`:
+If you don't want to see the interactive dialog each time, configure the default behavior in your `.agent-cli/settings.json`:
 
 ```json
 {
@@ -168,7 +168,7 @@ qwen --vlm-switch-mode persist
 
 #### Disable Vision Models (Optional)
 
-To completely disable vision model support, add to your `.qwen/settings.json`:
+To completely disable vision model support, add to your `.agent-cli/settings.json`:
 
 ```json
 {
@@ -184,7 +184,7 @@ To completely disable vision model support, add to your `.qwen/settings.json`:
 
 Choose your preferred authentication method based on your needs:
 
-#### 1. Qwen OAuth (🚀 Recommended - Start in 30 seconds)
+#### 1. Agent-Cli Auth (🚀 Recommended - Start in 30 seconds)
 
 The easiest way to get started - completely free with generous quotas:
 
@@ -196,7 +196,7 @@ qwen
 **What happens:**
 
 1. **Instant Setup**: CLI opens your browser automatically
-2. **One-Click Login**: Authenticate with your qwen.ai account
+2. **One-Click Login**: Authenticate with your agent-cli account
 3. **Automatic Management**: Credentials cached locally for future use
 4. **No Configuration**: Zero setup required - just start coding!
 
@@ -386,7 +386,7 @@ qwen
 - `/clear` - Clear conversation history
 - `/compress` - Compress history to save tokens
 - `/stats` - Show current session information
-- `/exit` or `/quit` - Exit Qwen Code
+- `/exit` or `/quit` - Exit Agent-Cli
 
 ### Keyboard Shortcuts
 
@@ -400,8 +400,8 @@ qwen
 
 | Agent     | Model              | Accuracy |
 | --------- | ------------------ | -------- |
-| Qwen Code | Qwen3-Coder-480A35 | 37.5%    |
-| Qwen Code | Qwen3-Coder-30BA3B | 31.3%    |
+| Agent-Cli | Qwen3-Coder-480A35 | 37.5%    |
+| Agent-Cli | Qwen3-Coder-30BA3B | 31.3%    |
 
 ## Development & Contributing
 
@@ -415,7 +415,7 @@ If you encounter issues, check the [troubleshooting guide](docs/troubleshooting.
 
 ## Acknowledgments
 
-This project is based on [Google Gemini CLI](https://github.com/google-gemini/gemini-cli). We acknowledge and appreciate the excellent work of the Gemini CLI team. Our main contribution focuses on parser-level adaptations to better support Qwen-Coder models.
+This project is based on [Google Gemini CLI](https://github.com/google-gemini/gemini-cli). We acknowledge and appreciate the excellent work of the Gemini CLI team. Our main contribution focuses on parser-level adaptations to better support Agent-Clir models.
 
 ## License
 
@@ -423,4 +423,4 @@ This project is based on [Google Gemini CLI](https://github.com/google-gemini/ge
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=QwenLM/qwen-code&type=Date)](https://www.star-history.com/#QwenLM/qwen-code&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=MuscleGear5/agent-cli&type=Date)](https://www.star-history.com/#MuscleGear5/agent-cli&Date)

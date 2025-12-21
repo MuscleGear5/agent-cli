@@ -6,7 +6,10 @@
 
 import { describe, it, expect, afterEach, vi } from 'vitest';
 import { FileSearchFactory, AbortError, filter } from './fileSearch.js';
-import { createTmpDir, cleanupTmpDir } from '@qwen-code/qwen-code-test-utils';
+import {
+  createTmpDir,
+  cleanupTmpDir,
+} from '@musclegear555/agent-cli-test-utils';
 
 describe('FileSearch', () => {
   let tmpDir: string;

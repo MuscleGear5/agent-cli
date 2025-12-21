@@ -8,7 +8,7 @@ import type {
   MCPServerConfig,
   GeminiCLIExtension,
   ExtensionInstallMetadata,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import {
   QWEN_DIR,
   Storage,
@@ -21,7 +21,7 @@ import {
   logExtensionInstallEvent,
   logExtensionUninstall,
   logExtensionDisable,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
@@ -301,7 +301,7 @@ export function loadInstallMetadata(
 
 function getContextFileNames(config: ExtensionConfig): string[] {
   if (!config.contextFileName) {
-    return ['QWEN.md'];
+    return ['AGENTS.md'];
   } else if (!Array.isArray(config.contextFileName)) {
     return [config.contextFileName];
   }
@@ -581,7 +581,7 @@ function extensionConsentString(extensionConfig: ExtensionConfig): string {
   }
   if (extensionConfig.contextFileName) {
     output.push(
-      `This extension will append info to your QWEN.md context using ${extensionConfig.contextFileName}`,
+      `This extension will append info to your AGENTS.md context using ${extensionConfig.contextFileName}`,
     );
   }
   if (extensionConfig.excludeTools) {

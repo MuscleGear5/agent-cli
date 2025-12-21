@@ -19,7 +19,7 @@ import {
   type Config,
   type ConversationRecord,
   type DeviceAuthorizationData,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import type { ApprovalModeValue } from './schema.js';
 import * as acp from './acp.js';
 import { AcpFileSystemService } from './service/filesystem.js';
@@ -83,7 +83,7 @@ class GeminiAgent {
       },
       {
         id: AuthType.QWEN_OAUTH,
-        name: 'Qwen OAuth',
+        name: 'Agent-Cli Auth',
         description:
           'OAuth authentication for Qwen models with 2000 daily requests',
       },
@@ -104,8 +104,8 @@ class GeminiAgent {
     return {
       protocolVersion: acp.PROTOCOL_VERSION,
       agentInfo: {
-        name: 'qwen-code',
-        title: 'Qwen Code',
+        name: 'agent-cli',
+        title: 'Agent-Cli',
         version,
       },
       authMethods,

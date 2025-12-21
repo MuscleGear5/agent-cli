@@ -225,7 +225,7 @@ export function parseExecutableSpec(executableSpec?: string): {
       `Executable file not found at '${resolvedPath}'. ` +
         'Please check the file path and ensure the file exists. ' +
         'You can also:\n' +
-        '  • Set QWEN_CODE_CLI_PATH environment variable\n' +
+        '  • Set AGENT_CLI_PATH environment variable\n' +
         '  • Install qwen globally: npm install -g qwen\n' +
         '  • For TypeScript files, ensure tsx is installed: npm install -g tsx\n' +
         '  • Force specific runtime: bun:/path/to/cli.js or tsx:/path/to/index.ts',

@@ -22,15 +22,15 @@ import {
   isGenericQuotaExceededError,
   isProQuotaExceededError,
   makeFakeConfig,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import { useQuotaAndFallback } from './useQuotaAndFallback.js';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import { AuthState, MessageType } from '../types.js';
 
 // Mock the error checking functions from the core package to control test scenarios
-vi.mock('@qwen-code/qwen-code-core', async (importOriginal) => {
+vi.mock('@musclegear555/agent-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@qwen-code/qwen-code-core')>();
+    await importOriginal<typeof import('@musclegear555/agent-cli-core')>();
   return {
     ...original,
     isGenericQuotaExceededError: vi.fn(),

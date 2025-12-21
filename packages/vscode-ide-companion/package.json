@@ -1,13 +1,13 @@
 {
-  "name": "qwen-code-vscode-ide-companion",
-  "displayName": "Qwen Code Companion",
-  "description": "Enable Qwen Code with direct access to your VS Code workspace.",
+  "name": "agent-cli-vscode-ide-companion",
+  "displayName": "Agent-Cli Companion",
+  "description": "Enable Agent-Cli with direct access to your VS Code workspace.",
   "version": "0.5.1",
   "publisher": "qwenlm",
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/QwenLM/qwen-code.git",
+    "url": "https://github.com/MuscleGear5/agent-cli.git",
     "directory": "packages/vscode-ide-companion"
   },
   "engines": {
@@ -19,7 +19,7 @@
     "AI"
   ],
   "keywords": [
-    "qwen-code",
+    "agent-cli",
     "qwen code",
     "qwen",
     "qwen code",
@@ -39,30 +39,30 @@
     "commands": [
       {
         "command": "qwen.diff.accept",
-        "title": "Qwen Code: Accept Current Diff",
+        "title": "Agent-Cli: Accept Current Diff",
         "icon": "$(check)"
       },
       {
         "command": "qwen.diff.cancel",
-        "title": "Qwen Code: Close Diff Editor",
+        "title": "Agent-Cli: Close Diff Editor",
         "icon": "$(close)"
       },
       {
-        "command": "qwen-code.runQwenCode",
-        "title": "Qwen Code: Run"
+        "command": "agent-cli.runQwenCode",
+        "title": "Agent-Cli: Run"
       },
       {
-        "command": "qwen-code.showNotices",
-        "title": "Qwen Code: View Third-Party Notices"
+        "command": "agent-cli.showNotices",
+        "title": "Agent-Cli: View Third-Party Notices"
       },
       {
-        "command": "qwen-code.openChat",
-        "title": "Qwen Code: Open",
+        "command": "agent-cli.openChat",
+        "title": "Agent-Cli: Open",
         "icon": "./assets/icon.png"
       },
       {
-        "command": "qwen-code.login",
-        "title": "Qwen Code: Login"
+        "command": "agent-cli.login",
+        "title": "Agent-Cli: Login"
       }
     ],
     "menus": {
@@ -76,7 +76,7 @@
           "when": "qwen.diff.isVisible"
         },
         {
-          "command": "qwen-code.login",
+          "command": "agent-cli.login",
           "when": "false"
         }
       ],
@@ -92,7 +92,7 @@
           "group": "navigation"
         },
         {
-          "command": "qwen-code.openChat",
+          "command": "agent-cli.openChat",
           "group": "navigation"
         }
       ]

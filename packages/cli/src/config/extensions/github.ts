@@ -9,7 +9,7 @@ import { getErrorMessage } from '../../utils/errors.js';
 import type {
   ExtensionInstallMetadata,
   GeminiCLIExtension,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import { ExtensionUpdateState } from '../../ui/state/extensions.js';
 import * as os from 'node:os';
 import * as https from 'node:https';

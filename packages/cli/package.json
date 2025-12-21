@@ -1,10 +1,10 @@
 {
-  "name": "@qwen-code/qwen-code",
+  "name": "@musclegear555/agent-cli",
   "version": "0.5.1",
-  "description": "Qwen Code",
+  "description": "Agent-Cli",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QwenLM/qwen-code.git"
+    "url": "git+https://github.com/MuscleGear5/agent-cli.git"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -33,12 +33,12 @@
     "dist"
   ],
   "config": {
-    "sandboxImageUri": "ghcr.io/qwenlm/qwen-code:0.5.1"
+    "sandboxImageUri": "ghcr.io/qwenlm/agent-cli:0.5.1"
   },
   "dependencies": {
     "@google/genai": "1.16.0",
     "@iarna/toml": "^2.2.5",
-    "@qwen-code/qwen-code-core": "file:../core",
+    "@musclegear555/agent-cli-core": "file:../core",
     "@modelcontextprotocol/sdk": "^1.15.1",
     "@types/update-notifier": "^6.0.8",
     "ansi-regex": "^6.2.2",
@@ -93,7 +93,7 @@
     "react-dom": "^19.1.0",
     "typescript": "^5.3.3",
     "vitest": "^3.1.1",
-    "@qwen-code/qwen-code-test-utils": "file:../test-utils"
+    "@musclegear555/agent-cli-test-utils": "file:../test-utils"
   },
   "engines": {
     "node": ">=20"

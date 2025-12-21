@@ -5,7 +5,10 @@
  */
 
 import * as osActual from 'node:os';
-import { FatalConfigError, ideContextStore } from '@qwen-code/qwen-code-core';
+import {
+  FatalConfigError,
+  ideContextStore,
+} from '@musclegear555/agent-cli-core';
 import {
   describe,
   it,

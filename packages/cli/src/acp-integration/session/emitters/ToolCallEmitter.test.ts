@@ -12,8 +12,8 @@ import type {
   ToolRegistry,
   AnyDeclarativeTool,
   AnyToolInvocation,
-} from '@qwen-code/qwen-code-core';
-import { Kind, TodoWriteTool } from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
+import { Kind, TodoWriteTool } from '@musclegear555/agent-cli-core';
 import type { Part } from '@google/genai';
 
 // Helper to create mock message parts for tests

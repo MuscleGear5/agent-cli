@@ -13,7 +13,7 @@ import {
   isSDKAssistantMessage,
   type TextBlock,
   type ContentBlock,
-} from '@qwen-code/sdk';
+} from '@agent-cli/sdk';
 import { SDKTestHelper, createSharedTestOptions } from './test-helper.js';
 
 const SHARED_TEST_OPTIONS = createSharedTestOptions();

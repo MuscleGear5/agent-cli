@@ -5,7 +5,10 @@
  */
 
 import { type CommandModule } from 'yargs';
-import { FatalConfigError, getErrorMessage } from '@qwen-code/qwen-code-core';
+import {
+  FatalConfigError,
+  getErrorMessage,
+} from '@musclegear555/agent-cli-core';
 import { enableExtension } from '../../config/extension.js';
 import { SettingScope } from '../../config/settings.js';
 

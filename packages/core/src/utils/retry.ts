@@ -176,7 +176,7 @@ export async function retryWithBackoff<T>(
         }
       }
 
-      // Check for Qwen OAuth quota exceeded error - throw immediately without retry
+      // Check for Agent-Cli Auth quota exceeded error - throw immediately without retry
       if (authType === AuthType.QWEN_OAUTH && isQwenQuotaExceededError(error)) {
         throw new Error(
           `Qwen API quota exceeded: Your Qwen API quota has been exhausted. Please wait for your quota to reset.`,

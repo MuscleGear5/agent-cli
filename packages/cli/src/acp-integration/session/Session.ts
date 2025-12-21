@@ -17,7 +17,7 @@ import type {
   ToolResult,
   ChatRecord,
   SubAgentEventEmitter,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import {
   ApprovalMode,
   convertToFunctionResponse,
@@ -33,7 +33,7 @@ import {
   UserPromptEvent,
   TodoWriteTool,
   ExitPlanModeTool,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 
 import * as acp from '../acp.js';
 import type { LoadedSettings } from '../../config/settings.js';

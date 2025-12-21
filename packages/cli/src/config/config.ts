@@ -26,7 +26,7 @@ import {
   type ResumedSessionData,
   type FileFilteringOptions,
   type MCPServerConfig,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import { extensionsCommand } from '../commands/extensions.js';
 import type { Settings } from './settings.js';
 import yargs, { type Argv } from 'yargs';
@@ -232,7 +232,7 @@ export async function parseArguments(settings: Settings): Promise<CliArgs> {
     })
     .option('proxy', {
       type: 'string',
-      description: 'Proxy for Qwen Code, like schema://user:password@host:port',
+      description: 'Proxy for Agent-Cli, like schema://user:password@host:port',
     })
     .deprecateOption(
       'proxy',
@@ -243,7 +243,7 @@ export async function parseArguments(settings: Settings): Promise<CliArgs> {
       description:
         'Enable chat recording to disk. If false, chat history is not saved and --continue/--resume will not work.',
     })
-    .command('$0 [query..]', 'Launch Qwen Code CLI', (yargsInstance: Argv) =>
+    .command('$0 [query..]', 'Launch Agent-Cli CLI', (yargsInstance: Argv) =>
       yargsInstance
         .positional('query', {
           description:
