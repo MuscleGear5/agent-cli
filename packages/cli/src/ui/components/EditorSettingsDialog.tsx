@@ -16,8 +16,8 @@ import {
 import { RadioButtonSelect } from './shared/RadioButtonSelect.js';
 import type { LoadedSettings } from '../../config/settings.js';
 import { SettingScope } from '../../config/settings.js';
-import type { EditorType } from '@qwen-code/qwen-code-core';
-import { isEditorAvailable } from '@qwen-code/qwen-code-core';
+import type { EditorType } from '@musclegear555/agent-cli-core';
+import { isEditorAvailable } from '@musclegear555/agent-cli-core';
 import { useKeypress } from '../hooks/useKeypress.js';
 import { t } from '../../i18n/index.js';
 

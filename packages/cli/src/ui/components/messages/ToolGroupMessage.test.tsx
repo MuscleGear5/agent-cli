@@ -14,7 +14,7 @@ import { ToolCallStatus } from '../../types.js';
 import type {
   Config,
   ToolCallConfirmationDetails,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import { TOOL_STATUS } from '../../constants.js';
 import { ConfigContext } from '../../contexts/ConfigContext.js';
 

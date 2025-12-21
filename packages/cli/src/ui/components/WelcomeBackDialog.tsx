@@ -6,7 +6,7 @@
 
 import { Box, Text } from 'ink';
 import { Colors } from '../colors.js';
-import { type ProjectSummaryInfo } from '@qwen-code/qwen-code-core';
+import { type ProjectSummaryInfo } from '@musclegear555/agent-cli-core';
 import {
   RadioButtonSelect,
   type RadioSelectItem,

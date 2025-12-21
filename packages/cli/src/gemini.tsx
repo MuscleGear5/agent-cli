@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { Config } from '@qwen-code/qwen-code-core';
+import type { Config } from '@musclegear555/agent-cli-core';
 import {
   AuthType,
   getOauthClient,
   InputFormat,
   logUserPrompt,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 import { render } from 'ink';
 import dns from 'node:dns';
 import os from 'node:os';

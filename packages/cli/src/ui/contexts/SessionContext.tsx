@@ -18,8 +18,8 @@ import type {
   SessionMetrics,
   ModelMetrics,
   ToolCallStats,
-} from '@qwen-code/qwen-code-core';
-import { uiTelemetryService } from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
+import { uiTelemetryService } from '@musclegear555/agent-cli-core';
 
 export enum ToolCallDecision {
   ACCEPT = 'accept',

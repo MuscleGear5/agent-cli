@@ -15,7 +15,7 @@ import type {
   AnsiOutput,
   AnsiOutputDisplay,
   Config,
-} from '@qwen-code/qwen-code-core';
+} from '@musclegear555/agent-cli-core';
 
 vi.mock('../TerminalOutput.js', () => ({
   TerminalOutput: function MockTerminalOutput({
