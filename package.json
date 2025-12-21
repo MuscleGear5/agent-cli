@@ -1,5 +1,5 @@
 {
-  "name": "@qwen-code/qwen-code",
+  "name": "@musclegear555/agent-cli",
   "version": "0.5.1",
   "engines": {
     "node": ">=20.0.0"
@@ -68,7 +68,7 @@
     }
   },
   "bin": {
-    "qwen": "dist/cli.js"
+    "agent-cli": "dist/cli.js"
   },
   "files": [
     "dist/",
