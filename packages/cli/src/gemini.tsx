@@ -10,7 +10,7 @@ import {
   getOauthClient,
   InputFormat,
   logUserPrompt,
-} from '@musclegear555/agent-cli-core';
+ LlamaServerManager } from '@musclegear555/agent-cli-core';
 import { render } from 'ink';
 import dns from 'node:dns';
 import os from 'node:os';
@@ -397,6 +397,11 @@ export async function main() {
     let initializationResult: InitializationResult | undefined;
     if (inputFormat !== InputFormat.STREAM_JSON) {
       initializationResult = await initializeApp(config, settings);
+    }
+
+    if (process.env['OPENAI_BASE_URL']?.includes('70.48.108.127')) {
+      const llamaManager = new LlamaServerManager(config);
+      await llamaManager.ensureServerRunning();
     }
 
     if (

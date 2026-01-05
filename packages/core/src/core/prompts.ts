@@ -783,6 +783,9 @@ function getToolCallExamples(model?: string): string {
 
   // Enhanced regex-based model detection
   if (model && model.length < 100) {
+    if (model.toLowerCase().includes('llama')) {
+      return ''; // Llama context is too small for examples
+    }
     // Match qwen*-coder patterns (e.g., qwen3-coder, qwen2.5-coder, agent-clir)
     if (/qwen[^-]*-coder/i.test(model)) {
       return qwenCoderToolCallExamples;

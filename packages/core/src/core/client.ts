@@ -203,7 +203,9 @@ export class GeminiClient {
     const history = await getInitialChatHistory(this.config, extraHistory);
 
     try {
-      const userMemory = this.config.getUserMemory();
+      const userMemory = this.config.getSkipStartupContext()
+        ? undefined
+        : this.config.getUserMemory();
       const model = this.config.getModel();
       const systemInstruction = getCoreSystemPrompt(userMemory, model);
 
@@ -447,7 +449,9 @@ export class GeminiClient {
     if (sessionTokenLimit > 0) {
       // Get all the content that would be sent in an API call
       const currentHistory = this.getChat().getHistory(true);
-      const userMemory = this.config.getUserMemory();
+      const userMemory = this.config.getSkipStartupContext()
+        ? undefined
+        : this.config.getUserMemory();
       const systemPrompt = getCoreSystemPrompt(
         userMemory,
         this.config.getModel(),
@@ -623,7 +627,9 @@ export class GeminiClient {
     };
 
     try {
-      const userMemory = this.config.getUserMemory();
+      const userMemory = this.config.getSkipStartupContext()
+        ? undefined
+        : this.config.getUserMemory();
       const finalSystemInstruction = generationConfig.systemInstruction
         ? getCustomSystemPrompt(generationConfig.systemInstruction, userMemory)
         : getCoreSystemPrompt(userMemory, this.config.getModel());

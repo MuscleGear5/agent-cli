@@ -123,7 +123,7 @@ export class McpPromptLoader implements ICommandLoader {
                 };
               }
 
-              if (!result.messages?.[0]?.content?.['text']) {
+              if (result.messages?.[0]?.content?.type !== 'text') {
                 return {
                   type: 'message',
                   messageType: 'error',
@@ -132,9 +132,11 @@ export class McpPromptLoader implements ICommandLoader {
                 };
               }
 
+              const textContent = result.messages[0].content;
+
               return {
                 type: 'submit_prompt',
-                content: JSON.stringify(result.messages[0].content.text),
+                content: JSON.stringify(textContent.text),
               };
             } catch (error) {
               return {

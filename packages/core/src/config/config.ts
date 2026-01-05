@@ -92,9 +92,13 @@ import {
   DEFAULT_FILE_FILTERING_OPTIONS,
   DEFAULT_MEMORY_FILE_FILTERING_OPTIONS,
 } from './constants.js';
-import { DEFAULT_QWEN_EMBEDDING_MODEL, DEFAULT_QWEN_MODEL } from './models.js';
+import {
+  DEFAULT_QWEN_EMBEDDING_MODEL,
+  DEFAULT_QWEN_MODEL,
+  DEFAULT_SKIP_STARTUP_CONTEXT,
+} from './models.js';
 import { Storage } from './storage.js';
-import { DEFAULT_DASHSCOPE_BASE_URL } from '../core/openaiContentGenerator/constants.js';
+import { DEFAULT_LLAMA_BASE_URL } from '../core/openaiContentGenerator/constants.js';
 import { ChatRecordingService } from '../services/chatRecordingService.js';
 import {
   SessionService,
@@ -568,7 +572,7 @@ export class Config {
     this._generationConfig = {
       model: params.model,
       ...(params.generationConfig || {}),
-      baseUrl: params.generationConfig?.baseUrl || DEFAULT_DASHSCOPE_BASE_URL,
+      baseUrl: params.generationConfig?.baseUrl || DEFAULT_LLAMA_BASE_URL,
     };
     this.contentGeneratorConfig = this
       ._generationConfig as ContentGeneratorConfig;
@@ -582,7 +586,8 @@ export class Config {
     this.interactive = params.interactive ?? false;
     this.trustedFolder = params.trustedFolder;
     this.skipLoopDetection = params.skipLoopDetection ?? false;
-    this.skipStartupContext = params.skipStartupContext ?? false;
+    this.skipStartupContext =
+      params.skipStartupContext ?? DEFAULT_SKIP_STARTUP_CONTEXT;
 
     // Web search
     this.webSearch = params.webSearch;

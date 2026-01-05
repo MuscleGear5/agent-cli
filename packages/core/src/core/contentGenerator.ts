@@ -102,13 +102,9 @@ export function createContentGeneratorConfig(
   }
 
   if (authType === AuthType.USE_OPENAI) {
-    if (!newContentGeneratorConfig.apiKey) {
-      throw new Error('OpenAI API key is required');
-    }
-
     return {
       ...newContentGeneratorConfig,
-      model: newContentGeneratorConfig?.model || 'qwen3-coder-plus',
+      model: newContentGeneratorConfig?.model || 'llama',
     } as ContentGeneratorConfig;
   }
 
@@ -168,10 +164,6 @@ export async function createContentGenerator(
   }
 
   if (config.authType === AuthType.USE_OPENAI) {
-    if (!config.apiKey) {
-      throw new Error('OpenAI API key is required');
-    }
-
     // Import OpenAIContentGenerator dynamically to avoid circular dependencies
     const { createOpenAIContentGenerator } = await import(
       './openaiContentGenerator/index.js'
