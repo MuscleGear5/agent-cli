@@ -13,6 +13,33 @@ import { JsonOutputAdapter } from './nonInteractive/io/JsonOutputAdapter.js';
 import { StreamJsonOutputAdapter } from './nonInteractive/io/StreamJsonOutputAdapter.js';
 import { runExitCleanup } from './utils/cleanup.js';
 
+function isLocalOpenAIServer(): boolean {
+  const baseUrl = process.env['OPENAI_BASE_URL'];
+  if (!baseUrl) return false;
+
+  try {
+    const url = new URL(baseUrl);
+    const host = url.hostname;
+
+    if (host === 'localhost' || host === '127.0.0.1') return true;
+
+    // RFC 1918 private IP ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+    const ipMatch = host.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/);
+    if (ipMatch) {
+      const [, a, b] = ipMatch.map(Number);
+      if (a === 10) return true;
+      if (a === 172 && b >= 16 && b <= 31) return true;
+      if (a === 192 && b === 168) return true;
+      if (a === 127) return true;
+      return true; // Any IP-based URL is likely a local server
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
+}
+
 function getAuthTypeFromEnv(): AuthType | undefined {
   if (process.env['OPENAI_API_KEY']) {
     return AuthType.USE_OPENAI;
@@ -30,6 +57,10 @@ export async function validateNonInteractiveAuth(
   nonInteractiveConfig: Config,
   settings: LoadedSettings,
 ): Promise<Config> {
+  if (isLocalOpenAIServer()) {
+    return nonInteractiveConfig;
+  }
+
   try {
     const enforcedType = settings.merged.security?.auth?.enforcedType;
     if (enforcedType) {

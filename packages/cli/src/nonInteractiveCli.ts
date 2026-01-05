@@ -178,6 +178,7 @@ export async function runNonInteractive(
       let isFirstTurn = true;
       while (true) {
         turnCount++;
+
         if (
           config.getMaxSessionTurns() >= 0 &&
           turnCount > config.getMaxSessionTurns()
@@ -187,6 +188,7 @@ export async function runNonInteractive(
 
         const toolCallRequests: ToolCallRequestInfo[] = [];
         const apiStartTime = Date.now();
+
         const responseStream = geminiClient.sendMessageStream(
           currentMessages[0]?.parts || [],
           abortController.signal,

@@ -10,7 +10,7 @@ import {
   getOauthClient,
   InputFormat,
   logUserPrompt,
- LlamaServerManager } from '@musclegear555/agent-cli-core';
+} from '@musclegear555/agent-cli-core';
 import { render } from 'ink';
 import dns from 'node:dns';
 import os from 'node:os';
@@ -111,6 +111,20 @@ function getNodeMemoryArgs(isDebugMode: boolean): string[] {
 import { ExtensionEnablementManager } from './config/extensions/extensionEnablement.js';
 import { loadSandboxConfig } from './config/sandboxConfig.js';
 import { runAcpAgent } from './acp-integration/acpAgent.js';
+
+function isLocalOpenAIServer(): boolean {
+  const baseUrl = process.env['OPENAI_BASE_URL'];
+  if (!baseUrl) return false;
+  try {
+    const host = new URL(baseUrl).hostname;
+    if (host === 'localhost' || host === '127.0.0.1') return true;
+    const ipMatch = host.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/);
+    if (ipMatch) return true;
+    return false;
+  } catch {
+    return false;
+  }
+}
 
 export function setupUnhandledRejectionHandler() {
   let unhandledRejectionOccurred = false;
@@ -256,6 +270,7 @@ export async function main() {
       );
 
       if (
+        !isLocalOpenAIServer() &&
         settings.merged.security?.auth?.selectedType &&
         !settings.merged.security?.auth?.useExternal
       ) {
@@ -397,11 +412,6 @@ export async function main() {
     let initializationResult: InitializationResult | undefined;
     if (inputFormat !== InputFormat.STREAM_JSON) {
       initializationResult = await initializeApp(config, settings);
-    }
-
-    if (process.env['OPENAI_BASE_URL']?.includes('70.48.108.127')) {
-      const llamaManager = new LlamaServerManager(config);
-      await llamaManager.ensureServerRunning();
     }
 
     if (
