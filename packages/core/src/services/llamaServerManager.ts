@@ -6,15 +6,36 @@
 
 import { exec } from 'node:child_process';
 import { promisify } from 'node:util';
-import type { Config } from '../config/config.js';
 
 const execAsync = promisify(exec);
 
+const LLAMA_SERVER_HOST = '70.48.108.127';
+const LLAMA_SERVER_PORT = 8888;
+const LLAMA_SERVER_URL = `http://${LLAMA_SERVER_HOST}:${LLAMA_SERVER_PORT}`;
+
+/**
+ * Check if OPENAI_BASE_URL points to our remote Llama server
+ */
+export function isRemoteLlamaServer(): boolean {
+  const baseUrl = process.env['OPENAI_BASE_URL'];
+  if (!baseUrl) return false;
+  try {
+    const url = new URL(baseUrl);
+    return url.hostname === LLAMA_SERVER_HOST;
+  } catch {
+    return false;
+  }
+}
+
 export class LlamaServerManager {
-  constructor(private readonly config: Config) {}
+  private debugMode: boolean;
+
+  constructor(debugMode?: boolean) {
+    this.debugMode = debugMode ?? process.env['DEBUG'] === 'true';
+  }
 
   async ensureServerRunning(): Promise<void> {
-    const debugMode = this.config.getDebugMode();
+    const debugMode = this.debugMode;
     if (debugMode) {
       console.log(
         '[LlamaServerManager] Ensuring Llama server is running with correct context...',
@@ -60,14 +81,14 @@ export class LlamaServerManager {
     for (let i = 0; i < maxRetries; i++) {
       try {
         const { stdout } = await this.executeCommand(
-          'curl -s http://70.48.108.127:8888/health',
+          `curl -s ${LLAMA_SERVER_URL}/health`,
         );
         const response = JSON.parse(stdout);
         if (response.status === 'ok' || response.status === 'loading model') {
           // Adjust based on actual health endpoint response
           // Ideally check /v1/models or similar to ensure model is actually loaded
           const { stdout: modelsOutput } = await this.executeCommand(
-            'curl -s http://70.48.108.127:8888/v1/models',
+            `curl -s ${LLAMA_SERVER_URL}/v1/models`,
           );
           const models = JSON.parse(modelsOutput);
           if (models.data && models.data.length > 0) {
@@ -77,7 +98,7 @@ export class LlamaServerManager {
       } catch (_e) {
         // Ignore connection errors during startup
       }
-      if (this.config.getDebugMode()) {
+      if (this.debugMode) {
         process.stdout.write('.');
       }
       await new Promise((resolve) => setTimeout(resolve, delayMs));

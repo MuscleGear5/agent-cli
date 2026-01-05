@@ -49,4 +49,7 @@ export * from './src/utils/request-tokenizer/supportedImageFormats.js';
 export { ClearcutLogger } from './src/telemetry/clearcut-logger/clearcut-logger.js';
 export { QwenLogger } from './src/telemetry/qwen-logger/qwen-logger.js';
 export { logModelSlashCommand } from './src/telemetry/loggers.js';
-export { LlamaServerManager } from './src/services/llamaServerManager.js';
+export {
+  LlamaServerManager,
+  isRemoteLlamaServer,
+} from './src/services/llamaServerManager.js';

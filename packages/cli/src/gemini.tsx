@@ -10,7 +10,9 @@ import {
   getOauthClient,
   InputFormat,
   logUserPrompt,
-} from '@musclegear555/agent-cli-core';
+
+  LlamaServerManager,
+  isRemoteLlamaServer} from '@musclegear555/agent-cli-core';
 import { render } from 'ink';
 import dns from 'node:dns';
 import os from 'node:os';
@@ -221,6 +223,11 @@ export async function main() {
   const settings = loadSettings();
   migrateDeprecatedSettings(settings);
   await cleanupCheckpoints();
+
+  if (isRemoteLlamaServer()) {
+    const llamaManager = new LlamaServerManager();
+    await llamaManager.ensureServerRunning();
+  }
 
   let argv = await parseArguments(settings.merged);
 
